@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplayer Snake Game</title>
+  <!-- Responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Socket.IO library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+</head>
+<body>
+  <div id="menu">
+    <h1>Multiplayer Snake Game</h1>
+    <div id="nameDiv">
+      <input type="text" id="playerName" placeholder="Enter Your Name">
+    </div>
+    <div id="roomActions">
+      <button id="createRoom">Create Room</button>
+      <div id="joinRoomDiv">
+        <input type="text" id="roomInput" placeholder="Enter Room Code">
+        <button id="joinRoom">Join Room</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="game" style="display: none;">
+    <div id="gameInfo">
+      <p>Room: <span id="roomCode"></span></p>
+      <p>Your Name: <span id="playerDisplayName"></span></p>
+      <p>Your Snake ID: <span id="snakeId"></span></p>
+      <p>Time Left: <span id="timeLeft"></span> seconds</p>
+      <p>Scores: <span id="scores"></span></p>
+    </div>
+    <canvas id="gameCanvas" width="600" height="600"></canvas>
+  </div>
+
+  <!-- Winner Modal -->
+  <div id="winnerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <h2 id="winnerMessage"></h2>
+      <p id="highScoreMessage"></p>
+      <button id="restartBtn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>
