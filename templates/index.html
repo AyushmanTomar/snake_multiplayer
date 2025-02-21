@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Multiplayer Snake Game</title>
-  <!-- Responsive viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Enhanced viewport meta tag for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   <!-- Socket.IO library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
@@ -32,6 +34,7 @@
       <p>Time Left: <span id="timeLeft"></span> seconds</p>
       <p>Scores: <span id="scores"></span></p>
     </div>
+    <!-- Mobile controls will be inserted here by JavaScript -->
     <canvas id="gameCanvas" width="600" height="600"></canvas>
   </div>
 
